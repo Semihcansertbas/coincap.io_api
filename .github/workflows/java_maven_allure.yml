@@ -49,10 +49,15 @@ jobs:
         name: allure-report
 
     - name: Set up Allure
-      run: |
-        sudo apt-add-repository -y ppa:qameta/allure
-        sudo apt-get update
-        sudo apt-get install -y allure
+      uses: actions/setup-allure@v2
+      with:
+        version: '2.14.0'
+
+    # - name: Set up Allure
+    #   run: |
+    #     sudo apt-add-repository -y ppa:qameta/allure
+    #     sudo apt-get update
+    #     sudo apt-get install -y allure
 
     - name: Serve Allure Report
       run: allure serve target/allure-results
