@@ -1,4 +1,4 @@
-name: Java Maven Allure Report
+name: Java Maven Allure Workflow
 
 on:
   push:
@@ -22,29 +22,31 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
-    - name: Run Allure Report
-      run: mvn clean compile test allure:report
-
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: allure-report
-        path: target/allure-results
-
-  allure:
+  allure-report:
     runs-on: ubuntu-latest
     needs: build
+
     steps:
     - name: Download Allure Report
       uses: actions/download-artifact@v2
       with:
         name: allure-report
+        path: target/allure-results
 
     - name: Set up Allure
-      run: |
-        sudo apt-add-repository -y ppa:qameta/allure
-        sudo apt-get update
-        sudo apt-get install -y allure
+      uses: actions/setup-allure@v2
+      with:
+        version: '2.14.0' # Use the latest version available
 
     - name: Serve Allure Report
       run: allure serve target/allure-results
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: allure-report
+
+    steps:
+    - name: Deploy to production
+      # Add your deployment steps here
+      run: echo "Deploying the code to production"
+
