@@ -40,10 +40,10 @@ jobs:
       with:
         name: allure-report
 
-    - name: Set up Allure
-      uses: actions/setup-allure@v2
-      with:
-        version: '2.14.0' # Use the latest version available
+    # - name: Set up Allure
+    #   uses: actions/setup-allure@v2
+    #   with:
+    #     version: '2.14.0' # Use the latest version available
 
     - name: Serve Allure Report
       run: allure serve target/allure-results
