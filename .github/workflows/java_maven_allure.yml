@@ -31,7 +31,7 @@ jobs:
       run: mvn clean install
 
     - name: Run Allure Report
-      run: clean compile test allure:report
+      run: mvn clean compile test allure:report
 
     - name: Upload Allure Report
       uses: actions/upload-artifact@v2
