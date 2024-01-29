@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc890c3a-d00c-45e2-a7d6-060b7f6f72d7" name="Changes" comment="First commit - Allure issue.">
+    <list default="true" id="bc890c3a-d00c-45e2-a7d6-060b7f6f72d7" name="Changes" comment="First commit - Allure issues fixed!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706559072965</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First commit - Allure issues fixed!">
+      <created>1706560222748</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706560222748</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +181,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit - Allure issue" />
     <MESSAGE value="First commit - Allure issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit - Allure issue." />
+    <MESSAGE value="First commit - Allure issues fixed!" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit - Allure issues fixed!" />
   </component>
 </project>
