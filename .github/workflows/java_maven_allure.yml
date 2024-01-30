@@ -1,8 +1,8 @@
-name: Java compiler
+name: Java-mvn compiler
 on: 
-     workflow_dispatch:
-       inputs:
-        parameter_name:
+ workflow_dispatch:
+  inputs:
+        name:
         description: 'Release version'
         required: false
         default: '2.1'
