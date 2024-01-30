@@ -16,6 +16,15 @@ coincap.io_api is a Java framework for interacting with the CoinCap.io API. The 
 
 ### Prerequisites
 - You must be a Github user
-- If you want to execute tests, simply joining the project will be enough. (Or push any changes in main branch)
+
+### Let's Execute our API Testing and check the results
+- Open the README.md file in a GitHub text editor, copy the above 2 line and paste end of the file.
+
+      ### I am using your application
+       - Github username is {your_username}
+- Commit changes
+- After commit runners will start the execution for your code base. Ref: java_maven_allure.yml
+- When execution done, you will see new report under the About section
+  
 
 
