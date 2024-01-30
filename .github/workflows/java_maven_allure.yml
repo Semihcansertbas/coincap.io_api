@@ -58,12 +58,14 @@ jobs:
 
 
 
-    - name: Deploy report to Github Pages
+    - name: Deploy report to GitHub Pages 🚀
       uses: peaceiris/actions-gh-pages@v3
+      
       with:
-        enable_jekyll: true
+      # enable_jekyll: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: allure-history
+        publish_dir: allure-report
+      # publish_dir: allure-history
 
    
