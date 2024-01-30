@@ -20,11 +20,6 @@ jobs:
           
       - name: Run tests
         run: mvn clean test
-
-      - name: Update allure-results folder permissions
-        run: |
-         mkdir -p allure-results/Reports/
-         chmod 777 -R allure-results/Reports/
             
 
       - name: Load test report history
