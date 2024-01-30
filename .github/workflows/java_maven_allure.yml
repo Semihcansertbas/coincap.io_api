@@ -26,7 +26,6 @@ jobs:
         continue-on-error: true
 
         
-        
       - name: Get Allure history
         uses: actions/checkout@v3
         if: always()
