@@ -62,3 +62,6 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
+
+    - name: HTML Preview
+      uses: pavi2410/html-preview-action@v2   
