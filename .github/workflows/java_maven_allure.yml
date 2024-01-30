@@ -25,17 +25,19 @@ jobs:
         java-version: '11'
 
     - name: Build with Maven
-      run: mvn clean install
+      run: |
+        mvn clean install
 
     
 
-    - name: Install dependencies and run tests
-      run: |
-        npm install
-        npm test
+    # - name: Install dependencies and run tests
+    #   run: |
+    #     npm install
+    #     npm test
 
     - name: Run Allure Report
-      run: mvn test allure:report
+      run: |
+        mvn test allure:report
 
     - name: Generate Allure report
       run: |
