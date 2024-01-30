@@ -61,10 +61,9 @@ jobs:
     - name: Deploy report to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        run: mvn clean test allure:report
-        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: allure-history
+        
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-history
 
-    # - name: HTML Preview
-    #   uses: pavi2410/html-preview-action@v2   
+   
