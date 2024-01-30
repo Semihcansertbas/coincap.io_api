@@ -1,4 +1,4 @@
-name: Java Maven Allure Report
+name: Java compiler
 on:
    workflow_dispatch:
     inputs:
@@ -12,41 +12,51 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: zulu
           java-version: 17
-          
+
+        
       - name: Run tests
         run: mvn clean test
-            
 
-      - name: Generate Allure Report
-        run: mvn allure:report
 
-      - name: Copy Allure Results to build directory
-        run: cp -R target/allure-results build/
+      - name: Run Allure Report
+        run: mvn clean test allure:report
 
+  
+ 
       - name: Load test report history
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
         with:
-          ref: gh-pages
-          path: gh-pages
+           ref: gh-pages
+           path: gh-pages
+    
+    
 
       - name: Build test report
         uses: simple-elf/allure-report-action@master
+        if: always()
         with:
           allure_results: build/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
 
-      - name: Publish test report
-        uses: peaceiris/actions-gh-pages@v3
+ 
+
+
+      - name: Deploy report to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
-          
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_branch: gh-pages
+         publish_dir: allure-history
+
+
