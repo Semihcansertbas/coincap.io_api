@@ -30,7 +30,7 @@ jobs:
       run: mvn clean test allure:report
 
     - name: Get Allure history
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       if: always()
       continue-on-error: true
       with:
@@ -50,7 +50,6 @@ jobs:
       if: always()
       id: allure-report
       with:
-        run: mvn clean test allure:report
         allure_results: allure-results
         gh_pages: gh-pages
         allure_report: allure-report
@@ -62,9 +61,10 @@ jobs:
     - name: Deploy report to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
+        run: mvn clean test allure:report
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
     - name: HTML Preview
-      uses: pavi2410/html-preview-action@v2   
+      uses: pavi2410/html-preview-action@v3   
