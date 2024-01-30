@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jan 30 20:26:58 GMT 2024","Tue Jan 30 20:26:58 GMT 2024","264","","CoinCapApiTests","","CoinCapApiTests","testSingleAssetResponseSchema","testSingleAssetResponseSchema()","Verify Response Schema for Single Asset"
+"passed","Tue Jan 30 20:26:54 GMT 2024","Tue Jan 30 20:26:57 GMT 2024","2353","","CoinCapApiTests","","CoinCapApiTests","testListAssetsResponseSchema","testListAssetsResponseSchema()","Verify Response Schema for List of Assets"
+"passed","Tue Jan 30 20:26:58 GMT 2024","Tue Jan 30 20:26:58 GMT 2024","292","","CoinCapApiTests","","CoinCapApiTests","testHistoricalDataEndpoint","testHistoricalDataEndpoint()","Verify Historical Data Endpoint"
+"passed","Tue Jan 30 20:26:57 GMT 2024","Tue Jan 30 20:26:57 GMT 2024","301","","CoinCapApiTests","","CoinCapApiTests","verifyAssetsRatesResponseSchema","verifyAssetsRatesResponseSchema()","Verify Response Schema for Assets Rates"
+"passed","Tue Jan 30 20:26:57 GMT 2024","Tue Jan 30 20:26:58 GMT 2024","277","","CoinCapApiTests","","CoinCapApiTests","testSortingByMarketCap","testSortingByMarketCap()","Verify Sorting by Market Capital"
+"passed","Tue Jan 30 20:26:58 GMT 2024","Tue Jan 30 20:26:58 GMT 2024","253","","CoinCapApiTests","","CoinCapApiTests","verifySingleAssetRatesResponseSchema","verifySingleAssetRatesResponseSchema()","Verify Response Schema for Single Asset Rates"
+"passed","Tue Jan 30 20:26:57 GMT 2024","Tue Jan 30 20:26:57 GMT 2024","273","","CoinCapApiTests","","CoinCapApiTests","fetchAssetHistoryWithInvalidSymbol","fetchAssetHistoryWithInvalidSymbol()","Fetch Asset History with Invalid Symbol"
