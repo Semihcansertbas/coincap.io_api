@@ -28,13 +28,7 @@ jobs:
 
     - name: Run Allure Report
       run: mvn clean test allure:report
-      
-    - uses: actions/upload-artifact@master
-      with:
-        name: allure-results
-        path: allure-results
-        retention-days: 20
-        
+
     - name: Get Allure history
       uses: actions/checkout@v2
       if: always()
@@ -42,12 +36,21 @@ jobs:
       with:
         ref: gh-pages
         path: gh-pages
-    
+        
+    - uses: actions/upload-artifact@master
+      with:
+        name: allure-results
+        path: allure-results
+        retention-days: 20
+        
+  
+
     - name: Test marketplace action
       uses: simple-elf/allure-report-action@master
       if: always()
       id: allure-report
       with:
+        run: mvn clean test allure:report
         allure_results: allure-results
         gh_pages: gh-pages
         allure_report: allure-report
