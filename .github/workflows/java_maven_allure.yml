@@ -28,7 +28,7 @@ jobs:
       run: mvn clean install
 
     - name: Run Allure Report
-      run: mvn clean compile test allure:report
+      run: mvn test allure:report
 
     - name: Upload Allure Report
       uses: actions/upload-artifact@v2
@@ -63,6 +63,7 @@ jobs:
           allure_history: allure-history
           keep_reports: 20
 
+     
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
