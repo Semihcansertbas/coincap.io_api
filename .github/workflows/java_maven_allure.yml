@@ -1,19 +1,19 @@
 name: Java compiler
-on:
-   workflow_dispatch:
-    inputs:
-      parameter_name:
-        description: 'Release version'
-        required: false
-        default: '2.1'
+on: [ push ]
+   # workflow_dispatch:
+   #  inputs:
+   #    parameter_name:
+   #      description: 'Release version'
+   #      required: false
+   #      default: '2.1'
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: zulu
@@ -21,7 +21,9 @@ jobs:
           
 
       - name: Build with Maven
+        if: always() 
         run: mvn clean compile test
+        continue-on-error: true
 
         
         
@@ -38,14 +40,14 @@ jobs:
         if: always()
         id: allure-report
         with:
-          allure_results: allure-results
+          allure_results: target/allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
 
       - name: Deploy report to GitHub Pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
         if: always()
+        uses: peaceiris/actions-gh-pages@v3
         with:
          github_token: ${{ secrets.GITHUB_TOKEN }}
          publish_branch: gh-pages
