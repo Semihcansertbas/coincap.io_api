@@ -1,9 +1,16 @@
 name: Java Maven Allure Report
 
 on:
-  push:
-    branches:
-      - main
+   workflow_dispatch:
+    inputs:
+      parameter_name:
+        description: 'Description of the parameter'
+        required: false
+        default: 'default_value'
+
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
