@@ -1,11 +1,11 @@
 name: Java-mvn compiler
-on: 
- workflow_dispatch:
-  inputs:
-        name:
-        description: 'Release version'
-        required: false
-        default: '2.1'
+on: [push]
+ # workflow_dispatch:
+ #  inputs:
+ #        name:
+ #        description: 'Release version'
+ #        required: false
+ #        default: '2.1'
 
 jobs:
   build:
