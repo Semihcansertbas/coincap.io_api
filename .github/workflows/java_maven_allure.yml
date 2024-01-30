@@ -10,64 +10,52 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
       with:
-        node-version: 20
-        
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
         java-version: '11'
-
-    - name: Build with Maven
-      run: mvn clean install
-
-    - name: Run Allure Report
-      run: mvn test allure:report
-
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v2
-      with:
-        name: allure-report
-        path: target/allure-results
-
+        distribution: 'temurin'
+        cache: maven
         
+    - uses: browser-actions/setup-chrome@latest
+    - run: chrome --version
+    
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      
+    - name: Build with Maven
+      run: mvn -B clean test
+      
+    - uses: actions/upload-artifact@master
+      with:
+        name: allure-results
+        path: allure-results
+        retention-days: 20
+        
+    - name: Get Allure history
+      uses: actions/checkout@v2
+      if: always()
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+    
+    - name: Test marketplace action
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      id: allure-report
+      with:
+        allure_results: allure-results
+        gh_pages: gh-pages
+        allure_report: allure-report
+        allure_history: allure-history
+        keep_reports: 20
 
-  allure:
-    name: Generate Allure Report
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        #id: allure-report
-        with:
-          allure_results: allure-results
-          #gh_pages: gh-pages
-          #allure_report: allure-report
-          allure_history: allure-history
-          keep_reports: 20
-
-     
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.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 }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+    - name: Deploy report to Github Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history
