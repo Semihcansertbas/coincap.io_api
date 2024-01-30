@@ -25,6 +25,7 @@ coincap.io_api is a Java framework for interacting with the CoinCap.io API. The 
 - Commit changes
 - After commit runners will start the execution for your code base. Ref: java_maven_allure.yml
 - When execution done, you will see new report under the About section
+<img width="1587" alt="Screenshot 2024-01-30 at 2 21 37 PM" src="https://github.com/Semihcansertbas/coincap.io_api/assets/40262346/11560c18-6b76-45c4-8a01-c17324ce8fee">
   
 
 
