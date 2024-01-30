@@ -23,12 +23,6 @@ jobs:
       - name: Build with Maven
         run: mvn clean test
       
-      
-      - uses: actions/upload-artifact@master
-        with:
-         name: allure-results
-         path: allure-results
-         retention-days: 20
         
       - name: Get Allure history
         uses: actions/checkout@v2
