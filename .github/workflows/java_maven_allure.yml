@@ -66,5 +66,5 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
 
-    - name: HTML Preview
-      uses: pavi2410/html-preview-action@v3   
+    # - name: HTML Preview
+    #   uses: pavi2410/html-preview-action@v2   
