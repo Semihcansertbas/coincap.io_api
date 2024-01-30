@@ -22,12 +22,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
-    
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
       
-    - name: Build with Maven
-      run: mvn -B clean test
+    - name: Build with Maven and Execute the Tests
+      run: mvn -B clean compile test
 
     - name: Run Allure Report
       run: mvn clean test allure:report
