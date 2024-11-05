@@ -22,7 +22,7 @@ coincap.io_api is a Java framework for interacting with the CoinCap.io API. The 
 - Open the README.md file in a GitHub text editor, copy the above 2 line and paste end of the file.
 
       ### I am using your application
-       - Github username is {your_username}
+        - Github username is {your_username}
 - Commit changes
 - After commit runners will start the execution for the code base. Ref: java_maven_allure.yml
 - When execution done, you can observe the new report under the About section and Actions workflows "pages build and deployment"
